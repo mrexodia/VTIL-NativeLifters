@@ -182,6 +182,26 @@ pop rbx)");
 	TEST("shrd rax, rbx, 63");
 	TEST("shrd rax, rbx, cl");
 
+	TEST(R"(
+		mov rax, 1
+		je .L
+		mov rax, 2
+	.L: nop
+	)");
+
+	TEST("shl al, 1");
+	TEST("shl al, cl");
+	TEST("shl al, 5");
+	TEST("shl ax, 1");
+	TEST("shl ax, cl");
+	TEST("shl ax, 5");
+	TEST("shl eax, 1");
+	TEST("shl eax, cl");
+	TEST("shl eax, 17");
+	TEST("shl rax, 1");
+	TEST("shl rax, cl");
+	TEST("shl rax, 33");
+
 	size_t passed = 0;
 	for (size_t i = 0; i < tests.size(); i++)
 	{
